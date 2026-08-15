@@ -52,17 +52,26 @@ Version 2.15.0 (TBA)
   - Properties with a setter but no getter are rendered as a plain annotated
     attribute. Previous versions emitted a ``@property`` decorator without an
     accompanying function definition.
+    (commit `ab446f <https://github.com/wjakob/nanobind/commit/ab446f3c058c40013377caf27b5db8eeb98bff88>`__).
+
+  - Stubs for :cpp:class:`nb::ndarray <ndarray>` arguments besides NumPy are
+    now valid Python. They previously carried extra information in square
+    brackets, as in ``mlx.core.array[dtype=float32, shape=(2, 4)]``, which
+    tools like ``ruff`` and ``ty`` reject. (PR `#1409
+    <https://github.com/wjakob/nanobind/pull/1409>`__).
 
   - ``stubgen`` now sets the environment variable ``NB_STUBGEN`` to ``"1"``.
     Extensions can query this variable to skip initialization steps that are
     expensive or inappropriate for stub generation (see the section on
     :ref:`detecting stub generation <stubgen_detection>` for details).
+    (commit `ee6516 <https://github.com/wjakob/nanobind/commit/ee6516d07735ee1e7f1386f7d567ece6248d7e9c>`__).
 
 - Miscellaneous minor fixes and improvements.
-  (commits `922a5c <https://github.com/wjakob/nanobind/commit/922a5cdaa4e6e18ecd233f9a7dd2c4b520a745d2>`__,
-  `ef993f <https://github.com/wjakob/nanobind/commit/ef993ffa28e631151ceac27746ef79da09eda783>`__,
+  (PR `#1406 <https://github.com/wjakob/nanobind/pull/1406>`__,
+  commits `922a5c <https://github.com/wjakob/nanobind/commit/922a5cdaa4e6e18ecd233f9a7dd2c4b520a745d2>`__,
   `62b78c <https://github.com/wjakob/nanobind/commit/62b78c2894b40172665bbb625f6e266fbe9a8555>`__,
-  `53d546 <https://github.com/wjakob/nanobind/commit/53d546f1a3d62a4f00aff4dfd26a12cfd5df08e8>`__).
+  `53d546 <https://github.com/wjakob/nanobind/commit/53d546f1a3d62a4f00aff4dfd26a12cfd5df08e8>`__,
+  `ef993f <https://github.com/wjakob/nanobind/commit/ef993ffa28e631151ceac27746ef79da09eda783>`__).
 
 - ABI version 21.
 
